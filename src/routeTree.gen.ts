@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as ApiCompetitorsRouteImport } from './routes/api/competitors'
+import { Route as ApiDecisionsRouteImport } from './routes/api/decisions'
+import { Route as ApiDemoRouteImport } from './routes/api/demo'
+import { Route as ApiFeedbackRouteImport } from './routes/api/feedback'
+import { Route as ApiHealthRouteImport } from './routes/api/health'
+import { Route as ApiMeetingsRouteImport } from './routes/api/meetings'
+import { Route as ApiMemoriesRouteImport } from './routes/api/memories'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiCompetitorsRoute = ApiCompetitorsRouteImport.update({
+  id: '/api/competitors',
+  path: '/api/competitors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDecisionsRoute = ApiDecisionsRouteImport.update({
+  id: '/api/decisions',
+  path: '/api/decisions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDemoRoute = ApiDemoRouteImport.update({
+  id: '/api/demo',
+  path: '/api/demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiFeedbackRoute = ApiFeedbackRouteImport.update({
+  id: '/api/feedback',
+  path: '/api/feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiHealthRoute = ApiHealthRouteImport.update({
+  id: '/api/health',
+  path: '/api/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiMeetingsRoute = ApiMeetingsRouteImport.update({
+  id: '/api/meetings',
+  path: '/api/meetings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiMemoriesRoute = ApiMemoriesRouteImport.update({
+  id: '/api/memories',
+  path: '/api/memories',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/competitors': typeof ApiCompetitorsRoute
+  '/api/decisions': typeof ApiDecisionsRoute
+  '/api/demo': typeof ApiDemoRoute
+  '/api/feedback': typeof ApiFeedbackRoute
+  '/api/health': typeof ApiHealthRoute
+  '/api/meetings': typeof ApiMeetingsRoute
+  '/api/memories': typeof ApiMemoriesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/competitors': typeof ApiCompetitorsRoute
+  '/api/decisions': typeof ApiDecisionsRoute
+  '/api/demo': typeof ApiDemoRoute
+  '/api/feedback': typeof ApiFeedbackRoute
+  '/api/health': typeof ApiHealthRoute
+  '/api/meetings': typeof ApiMeetingsRoute
+  '/api/memories': typeof ApiMemoriesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/competitors': typeof ApiCompetitorsRoute
+  '/api/decisions': typeof ApiDecisionsRoute
+  '/api/demo': typeof ApiDemoRoute
+  '/api/feedback': typeof ApiFeedbackRoute
+  '/api/health': typeof ApiHealthRoute
+  '/api/meetings': typeof ApiMeetingsRoute
+  '/api/memories': typeof ApiMemoriesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/api/chat'
+    | '/api/competitors'
+    | '/api/decisions'
+    | '/api/demo'
+    | '/api/feedback'
+    | '/api/health'
+    | '/api/meetings'
+    | '/api/memories'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/api/chat'
+    | '/api/competitors'
+    | '/api/decisions'
+    | '/api/demo'
+    | '/api/feedback'
+    | '/api/health'
+    | '/api/meetings'
+    | '/api/memories'
+  id:
+    | '__root__'
+    | '/'
+    | '/api/chat'
+    | '/api/competitors'
+    | '/api/decisions'
+    | '/api/demo'
+    | '/api/feedback'
+    | '/api/health'
+    | '/api/meetings'
+    | '/api/memories'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiChatRoute: typeof ApiChatRoute
+  ApiCompetitorsRoute: typeof ApiCompetitorsRoute
+  ApiDecisionsRoute: typeof ApiDecisionsRoute
+  ApiDemoRoute: typeof ApiDemoRoute
+  ApiFeedbackRoute: typeof ApiFeedbackRoute
+  ApiHealthRoute: typeof ApiHealthRoute
+  ApiMeetingsRoute: typeof ApiMeetingsRoute
+  ApiMemoriesRoute: typeof ApiMemoriesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/competitors': {
+      id: '/api/competitors'
+      path: '/api/competitors'
+      fullPath: '/api/competitors'
+      preLoaderRoute: typeof ApiCompetitorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/decisions': {
+      id: '/api/decisions'
+      path: '/api/decisions'
+      fullPath: '/api/decisions'
+      preLoaderRoute: typeof ApiDecisionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/demo': {
+      id: '/api/demo'
+      path: '/api/demo'
+      fullPath: '/api/demo'
+      preLoaderRoute: typeof ApiDemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/feedback': {
+      id: '/api/feedback'
+      path: '/api/feedback'
+      fullPath: '/api/feedback'
+      preLoaderRoute: typeof ApiFeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/health': {
+      id: '/api/health'
+      path: '/api/health'
+      fullPath: '/api/health'
+      preLoaderRoute: typeof ApiHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/meetings': {
+      id: '/api/meetings'
+      path: '/api/meetings'
+      fullPath: '/api/meetings'
+      preLoaderRoute: typeof ApiMeetingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/memories': {
+      id: '/api/memories'
+      path: '/api/memories'
+      fullPath: '/api/memories'
+      preLoaderRoute: typeof ApiMemoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiChatRoute: ApiChatRoute,
+  ApiCompetitorsRoute: ApiCompetitorsRoute,
+  ApiDecisionsRoute: ApiDecisionsRoute,
+  ApiDemoRoute: ApiDemoRoute,
+  ApiFeedbackRoute: ApiFeedbackRoute,
+  ApiHealthRoute: ApiHealthRoute,
+  ApiMeetingsRoute: ApiMeetingsRoute,
+  ApiMemoriesRoute: ApiMemoriesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
