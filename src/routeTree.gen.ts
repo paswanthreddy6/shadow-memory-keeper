@@ -10,10 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AskRouteImport } from './routes/ask'
 import { Route as CompetitorsRouteImport } from './routes/competitors'
 import { Route as DecisionsRouteImport } from './routes/decisions'
 import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as MeetingsRouteImport } from './routes/meetings'
+import { Route as MemoryRouteImport } from './routes/memory'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as ApiCompetitorsRouteImport } from './routes/api/competitors'
 import { Route as ApiDecisionsRouteImport } from './routes/api/decisions'
@@ -26,6 +28,11 @@ import { Route as ApiMemoriesRouteImport } from './routes/api/memories'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AskRoute = AskRouteImport.update({
+  id: '/ask',
+  path: '/ask',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompetitorsRoute = CompetitorsRouteImport.update({
@@ -46,6 +53,11 @@ const FeedbackRoute = FeedbackRouteImport.update({
 const MeetingsRoute = MeetingsRouteImport.update({
   id: '/meetings',
   path: '/meetings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MemoryRoute = MemoryRouteImport.update({
+  id: '/memory',
+  path: '/memory',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
@@ -91,10 +103,12 @@ const ApiMemoriesRoute = ApiMemoriesRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ask': typeof AskRoute
   '/competitors': typeof CompetitorsRoute
   '/decisions': typeof DecisionsRoute
   '/feedback': typeof FeedbackRoute
   '/meetings': typeof MeetingsRoute
+  '/memory': typeof MemoryRoute
   '/api/chat': typeof ApiChatRoute
   '/api/competitors': typeof ApiCompetitorsRoute
   '/api/decisions': typeof ApiDecisionsRoute
@@ -106,10 +120,12 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ask': typeof AskRoute
   '/competitors': typeof CompetitorsRoute
   '/decisions': typeof DecisionsRoute
   '/feedback': typeof FeedbackRoute
   '/meetings': typeof MeetingsRoute
+  '/memory': typeof MemoryRoute
   '/api/chat': typeof ApiChatRoute
   '/api/competitors': typeof ApiCompetitorsRoute
   '/api/decisions': typeof ApiDecisionsRoute
@@ -122,10 +138,12 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ask': typeof AskRoute
   '/competitors': typeof CompetitorsRoute
   '/decisions': typeof DecisionsRoute
   '/feedback': typeof FeedbackRoute
   '/meetings': typeof MeetingsRoute
+  '/memory': typeof MemoryRoute
   '/api/chat': typeof ApiChatRoute
   '/api/competitors': typeof ApiCompetitorsRoute
   '/api/decisions': typeof ApiDecisionsRoute
@@ -139,10 +157,12 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/ask'
     | '/competitors'
     | '/decisions'
     | '/feedback'
     | '/meetings'
+    | '/memory'
     | '/api/chat'
     | '/api/competitors'
     | '/api/decisions'
@@ -154,10 +174,12 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/ask'
     | '/competitors'
     | '/decisions'
     | '/feedback'
     | '/meetings'
+    | '/memory'
     | '/api/chat'
     | '/api/competitors'
     | '/api/decisions'
@@ -169,10 +191,12 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/ask'
     | '/competitors'
     | '/decisions'
     | '/feedback'
     | '/meetings'
+    | '/memory'
     | '/api/chat'
     | '/api/competitors'
     | '/api/decisions'
@@ -185,10 +209,12 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AskRoute: typeof AskRoute
   CompetitorsRoute: typeof CompetitorsRoute
   DecisionsRoute: typeof DecisionsRoute
   FeedbackRoute: typeof FeedbackRoute
   MeetingsRoute: typeof MeetingsRoute
+  MemoryRoute: typeof MemoryRoute
   ApiChatRoute: typeof ApiChatRoute
   ApiCompetitorsRoute: typeof ApiCompetitorsRoute
   ApiDecisionsRoute: typeof ApiDecisionsRoute
@@ -206,6 +232,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ask': {
+      id: '/ask'
+      path: '/ask'
+      fullPath: '/ask'
+      preLoaderRoute: typeof AskRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/competitors': {
@@ -234,6 +267,13 @@ declare module '@tanstack/react-router' {
       path: '/meetings'
       fullPath: '/meetings'
       preLoaderRoute: typeof MeetingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/memory': {
+      id: '/memory'
+      path: '/memory'
+      fullPath: '/memory'
+      preLoaderRoute: typeof MemoryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/chat': {
@@ -297,10 +337,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AskRoute: AskRoute,
   CompetitorsRoute: CompetitorsRoute,
   DecisionsRoute: DecisionsRoute,
   FeedbackRoute: FeedbackRoute,
   MeetingsRoute: MeetingsRoute,
+  MemoryRoute: MemoryRoute,
   ApiChatRoute: ApiChatRoute,
   ApiCompetitorsRoute: ApiCompetitorsRoute,
   ApiDecisionsRoute: ApiDecisionsRoute,

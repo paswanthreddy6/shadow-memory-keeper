@@ -50,14 +50,6 @@ function Overview() {
   )
     .sort((a, b) => b[1] - a[1])
     .slice(0, 5);
-  const entityThemes = Object.entries(
-    (data?.items ?? []).reduce<Record<string, number>>((acc, m) => {
-      const ents = (m as unknown as { entities?: string }).entities;
-      void ents;
-      return acc;
-    }, {}),
-  );
-  void entityThemes;
 
   // activity: records per month (real dates)
   const activity = Object.entries(
