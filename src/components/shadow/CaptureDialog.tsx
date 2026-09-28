@@ -36,7 +36,7 @@ export function CaptureDialog({
   const [busy, setBusy] = useState(false);
   const init = () =>
     Object.fromEntries(
-      fields.map((f) => [f.name, f.type === "date" ? today() : f.type === "select" ? f.options[0] : ""]),
+      fields.map((f) => [f.name, f.type === "date" ? today() : f.type === "select" ? (f.options[0] ?? "") : ""]),
     );
   const [values, setValues] = useState<Record<string, string>>(init);
 

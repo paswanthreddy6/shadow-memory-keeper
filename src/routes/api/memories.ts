@@ -15,7 +15,7 @@ export const Route = createFileRoute("/api/memories")({
             const items = await recallMemories(q, factType ? [factType] : undefined);
             return json({ items, records: groupRecords(items), total: items.length, mode: "recall" });
           }
-          const { items, total } = await listMemories({ limit: 500, type: factType });
+          const { items, total } = await listMemories({ limit: 500, ...(factType ? { type: factType } : {}) });
           return json({ items, records: groupRecords(items), total, mode: "list" });
         } catch (e) {
           return fail(e);

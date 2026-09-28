@@ -20,7 +20,7 @@ export function ErrorState({ error }: { error: unknown }) {
   );
 }
 
-export function EmptyState({ message }: { message?: string }) {
+export function EmptyState({ message }: { message?: string | undefined }) {
   return (
     <div className="flex flex-col items-center rounded-xl border border-dashed border-border px-6 py-14 text-center">
       <Inbox className="mb-3 size-6 text-muted-foreground" />

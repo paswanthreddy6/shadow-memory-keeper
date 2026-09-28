@@ -3,7 +3,7 @@ import type { MemoryKind } from "@/types/memory";
 
 const date = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Use YYYY-MM-DD");
 const short = (max = 200) => z.string().trim().min(1).max(max);
-const opt = (max = 200) => z.string().trim().max(max).optional().default("");
+const opt = (max = 200) => z.string().trim().max(max).default("");
 
 export const feedbackSchema = z.object({
   title: short(),
